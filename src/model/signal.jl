@@ -25,6 +25,7 @@ struct Signal
         end
         return new(switch, fun)
     end
+    Signal(switch::Expr, fun::Function) = new(switch, fun)
 end
 
 function prep_signal(signal::Signal, indicator_data::TS)::Expr
@@ -41,3 +42,5 @@ end
 
 ↑(x, y) = Indicators.crossover(x, y)
 ↓(x, y) = Indicators.crossunder(x, y)
+
+(&)(s1::S, s2::S) where S<:Signal = Signal(:(s1.switch & s2.switch), fun)
