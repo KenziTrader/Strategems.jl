@@ -15,7 +15,7 @@ module Strategems
         # indicators
         Indicator, calculate,
         # signals
-        Signal, prep_signal, ↑, ↓, @signal,
+        Signal, prep_signal, ↑, ↓, @signal, &,
         # rules
         Rule, @rule, →,
         # portfolios
